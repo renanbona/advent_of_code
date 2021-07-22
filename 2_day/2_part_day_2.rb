@@ -1,5 +1,3 @@
-require 'pry'
-
 puzzle_input = File.readlines('puzzle_input.txt').map { |line| line.split(' ') }
 
 valid_passwords = 0
@@ -18,4 +16,4 @@ puzzle_input.map do |input|
 end
 
 puts valid_passwords
-puts 'haha'
+# 530

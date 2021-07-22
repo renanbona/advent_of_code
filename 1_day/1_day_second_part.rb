@@ -1,20 +1,31 @@
-# require 'pry'
-require 'benchmark'
+numbers = File.readlines('puzzle_input.txt').map(&:to_i)
 
-start = Time.now
+class ThreeNumbersCombine2020
+  attr_reader :input_data
 
-numbers = File.readlines("puzzle_input.txt").map(&:to_i)
+  def initialize(input_data = [])
+    @input_data = input_data
+  end
 
-combination_of_three_numbers = numbers.combination(3).to_a
+  def self.call(*args)
+    new(*args).call
+  end
 
-combination_of_three_numbers.each do |array|
-  if array.sum == 2020
-    puts array
-    puts array.reduce(:*)
-    break
+  def call
+    find_sum_equals_2020.reduce(:*)
+  end
+
+  private
+
+  def combination_of_three_numbers
+    @combination_of_three_numbers ||= input_data.combination(3).to_a
+  end
+
+  def find_sum_equals_2020
+    combination_of_three_numbers.each do |array|
+      return array if array.sum == 2020
+    end
   end
 end
 
-finish = Time.now
-
-puts finish - start
+# puts ThreeNumbersCombine2020.call(numbers)

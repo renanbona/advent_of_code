@@ -16,7 +16,7 @@ class GameInstructions
 
   def call
     instructions_queue
-    puts @acc
+    @acc
   end
 
   private
@@ -39,4 +39,4 @@ class GameInstructions
   end
 end
 
-GameInstructions.call(input_data)
+# GameInstructions.call(input_data)
